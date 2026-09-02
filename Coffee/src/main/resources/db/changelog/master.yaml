@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/initial/001-create_users.yaml
+  - include:
+      file: db/changelog/initial/002-create_coffees.yaml
+  - include:
+      file: db/changelog/initial/003-create_orders.yaml
+  - include:
+      file: db/changelog/initial/004-create_purchases.yaml
+  - include:
+      file: db/changelog/initial/005-create_insert_data.yaml
+  - include:
+      file: db/changelog/initial/006-create_contact.yaml

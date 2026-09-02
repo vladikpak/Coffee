@@ -1,0 +1,50 @@
+server:
+  port: 8089
+
+spring:
+  config:
+    import: optional:file:.env[.properties]
+
+  application:
+    name: Coffee
+
+  datasource:
+    url: jdbc:h2:./db/test;AUTO_SERVER=TRUE
+    username: root
+    password: qwerty
+    driver-class-name: org.h2.Driver
+
+  liquibase:
+      change-log: classpath:/db/changelog/master.yaml
+
+  mvc:
+      static-path-pattern: /static/**
+      log-request-details: true
+
+  freemarker:
+      expose-session-attributes: true
+
+  jpa:
+      hibernate:
+        ddl-auto: validate
+      show-sql: true
+      properties:
+        hibernate:
+          format_sql: true
+
+  servlet:
+      multipart:
+        enabled: true
+        max-file-size: 50MB
+        max-request-size: 50MB
+        file-size-threshold: 2KB
+
+logging:
+    level:
+      org.springframework.web: DEBUG
+      org.hibernate.SQL: DEBUG
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+      com.example.Travel: DEBUG
+      org.springframework.web.servlet.resource: DEBUG
+    file:
+      path: log

@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003_create_orders_table
+      author: users
+      changes:
+        - createTable:
+            tableName: orders
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: number
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: coffee_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: quantity
+                  type: integer
+              - column:
+                  name: status
+                  type: varchar(100)
+              - column:
+                  name: price_at_time
+                  type: integer
+              - column:
+                  name: updated_at
+                  type: timestamp
+              - column:
+                  name: created_at
+                  type: timestamp
+        - addForeignKeyConstraint:
+            constraintName: fk_order_user
+            baseTableName: orders
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            constraintName: fk_order_coffee
+            baseTableName: orders
+            baseColumnNames: coffee_id
+            referencedTableName: coffees
+            referencedColumnNames: id

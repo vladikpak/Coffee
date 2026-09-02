@@ -1,0 +1,50 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004_create_purchases_table
+      author: users
+      changes:
+        - createTable:
+            tableName: purchases
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: coffee_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price_at_time
+                  type: integer
+              - column:
+                  name: quality
+                  type: integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+              - column:
+                  name: updated_at
+                  type: timestamp
+        - addForeignKeyConstraint:
+            constraintName: fk_purchase_user
+            baseTableName: orders
+            baseColumnNames: user_id
+            referencedTableName: users
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            constraintName: fk_purchase_coffee
+            baseTableName: orders
+            baseColumnNames: coffee_id
+            referencedTableName: coffees
+            referencedColumnNames: id

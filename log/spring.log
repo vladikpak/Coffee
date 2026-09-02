@@ -1,0 +1,5 @@
+2026-09-02T00:49:32.099+06:00  INFO 13936 --- [Coffee] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-02T00:49:32.109+06:00  INFO 13936 --- [Coffee] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-02T00:49:32.118+06:00  INFO 13936 --- [Coffee] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-02T00:49:32.121+06:00  INFO 13936 --- [Coffee] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-02T00:49:32.122+06:00  INFO 13936 --- [Coffee] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

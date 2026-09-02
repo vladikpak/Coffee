@@ -1,0 +1,123 @@
+databaseChangeLog:
+  - changeSet:
+      id: 005-insert-data-table
+      author: student
+      changes:
+        # Кофе 1
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 1 }
+              - column: { name: name, value: "Espresso Masterpiece" }
+              - column: { name: description, value: "Bold and rich espresso with a perfect crema." }
+              - column: { name: price, value: 290 }
+              - column: { name: stock, value: 50 }
+              - column: { name: image, value: "espresso.jpg" }
+
+
+        # Кофе 2
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 2 }
+              - column: { name: name, value: "Iced Favorites" }
+              - column: { name: description, value: "Chilled, smooth, and perfect for any day." }
+              - column: { name: price, value: 380 }
+              - column: { name: stock, value: 40 }
+              - column: { name: image, value: "iced.jpg" }
+
+
+        # Кофе 3
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 3 }
+              - column: { name: name, value: "Coffee Favorites" }
+              - column: { name: description, value: "Timeless classics that warm your soul." }
+              - column: { name: price, value: 350 }
+              - column: { name: stock, value: 60 }
+              - column: { name: image, value: "classic.jpg" }
+
+
+        # Кофе 4
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 4 }
+              - column: { name: name, value: "Organic Beans" }
+              - column: { name: description, value: "Sustainably sourced and full of flavor." }
+              - column: { name: price, value: 390 }
+              - column: { name: stock, value: 30 }
+              - column: { name: image, value: "organic.jpg" }
+
+
+        # Кофе 5
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 5 }
+              - column: { name: name, value: "Latte" }
+              - column: { name: description, value: "Smooth and creamy with a rich espresso base." }
+              - column: { name: price, value: 420 }
+              - column: { name: stock, value: 45 }
+              - column: { name: image, value: "latte.jpg" }
+
+
+        # Кофе 6
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 6 }
+              - column: { name: name, value: "Caramel Macchiato" }
+              - column: { name: description, value: "Sweet caramel with smooth espresso." }
+              - column: { name: price, value: 450 }
+              - column: { name: stock, value: 35 }
+              - column: { name: image, value: "caramel.jpg" }
+
+
+        # Кофе 7
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 7 }
+              - column: { name: name, value: "Classic Cappuccino" }
+              - column: { name: description, value: "Perfectly balanced espresso with creamy foam." }
+              - column: { name: price, value: 380 }
+              - column: { name: stock, value: 50 }
+              - column: { name: image, value: "cappuccino.jpg" }
+
+
+        # Кофе 8
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 8 }
+              - column: { name: name, value: "Mocha Delight" }
+              - column: { name: description, value: "Chocolate and espresso in perfect harmony." }
+              - column: { name: price, value: 460 }
+              - column: { name: stock, value: 25 }
+              - column: { name: image, value: "mocha.jpg" }
+
+
+        # Кофе 9
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 9 }
+              - column: { name: name, value: "Vanilla Latte" }
+              - column: { name: description, value: "Smooth vanilla with rich espresso." }
+              - column: { name: price, value: 400 }
+              - column: { name: stock, value: 40 }
+              - column: { name: image, value: "vanilla.jpg" }
+
+
+        # Кофе 10
+        - insert:
+            tableName: coffees
+            columns:
+              - column: { name: id, value: 10 }
+              - column: { name: name, value: "Brewly Special" }
+              - column: { name: description, value: "Our signature blend, crafted with love." }
+              - column: { name: price, value: 500 }
+              - column: { name: stock, value: 20 }
+              - column: { name: image, value: "special.jpg" }

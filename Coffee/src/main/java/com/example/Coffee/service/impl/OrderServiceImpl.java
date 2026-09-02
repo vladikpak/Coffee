@@ -1,0 +1,107 @@
+package com.example.Coffee.service.impl;
+
+import com.example.Coffee.dto.OrderDto;
+import com.example.Coffee.model.Coffee;
+import com.example.Coffee.model.Order;
+import com.example.Coffee.model.User;
+import com.example.Coffee.repository.CoffeeRepository;
+import com.example.Coffee.repository.OrderRepository;
+import com.example.Coffee.repository.UserRepository;
+import com.example.Coffee.service.OrderService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
+@Service
+@RequiredArgsConstructor
+@Transactional
+public class OrderServiceImpl implements OrderService {
+
+    private final OrderRepository orderRepository;
+    private final UserRepository userRepository;
+    private final CoffeeRepository coffeeRepository;
+
+    @Override
+    public OrderDto createOrder(Long userId, Long coffeeId, Integer quantity) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        Coffee coffee = coffeeRepository.findById(coffeeId)
+                .orElseThrow(() -> new RuntimeException("Coffee not found"));
+
+        if (coffee.getStock() < quantity) {
+            throw new RuntimeException("Not enough coffee in stock!");
+        }
+
+        int totalPrice = coffee.getPrice() * quantity;
+        if (user.getMoney() < totalPrice) {
+            throw new RuntimeException("Not enough money! Need: $" + totalPrice);
+        }
+
+        user.setMoney(user.getMoney() - totalPrice);
+        userRepository.save(user);
+
+        coffee.setStock(coffee.getStock() - quantity);
+        coffeeRepository.save(coffee);
+
+        // 👇 ГЕНЕРИРУЕМ НОМЕР ЗАКАЗА
+        String orderNumber = "ORD-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
+
+        Order order = Order.builder()
+                .number(orderNumber)
+                .user(user)
+                .coffee(coffee)
+                .quantity(quantity)
+                .priceAtTime(coffee.getPrice())
+                .status("PAID")
+                .createdAt(LocalDateTime.now())
+                .build();
+
+        Order savedOrder = orderRepository.save(order);
+        return convertToDto(savedOrder);
+    }
+
+    @Override
+    public OrderDto getOrderById(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+        return convertToDto(order);
+    }
+
+    @Override
+    public OrderDto getOrderByNumber(String number) {
+        Order order = orderRepository.findByNumber(number)
+                .orElseThrow(() -> new RuntimeException("Order not found with number: " + number));
+        return convertToDto(order);
+    }
+
+    @Override
+    public List<OrderDto> getUserOrders(Long userId) {
+        return orderRepository.findByUserIdOrderByCreatedAtDesc(userId).stream()
+                .map(this::convertToDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public OrderDto convertToDto(Order order) {
+        return OrderDto.builder()
+                .id(order.getId())
+                .number(order.getNumber())
+                .userId(order.getUser().getId())
+                .userName(order.getUser().getName())
+                .coffeeId(order.getCoffee().getId())
+                .coffeeName(order.getCoffee().getName())
+                .quantity(order.getQuantity())
+                .priceAtTime(order.getPriceAtTime())
+                .total(order.getQuantity() * order.getPriceAtTime())
+                .status(order.getStatus())
+                .createdAt(order.getCreatedAt())
+                .updatedAt(order.getUpdatedAt())
+                .build();
+    }
+}
