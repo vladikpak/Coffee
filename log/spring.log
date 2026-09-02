@@ -1666,3 +1666,448 @@ Encountered "!", but was expecting pattern:
 2026-09-02T13:45:54.681+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
 2026-09-02T13:45:54.682+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
 2026-09-02T13:45:54.684+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T13:47:53.705+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/process", parameters={}
+2026-09-02T13:47:53.706+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.Coffee.controller.MainController#process()
+2026-09-02T13:47:53.708+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T13:47:53.713+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-09-02T13:47:53.714+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.w.s.view.freemarker.FreeMarkerView   : View name [process/process], model {username=fff@fff.fff, isAuthenticated=true, currentUser=UserDto(id=1, name=fff, email=fff@fff.fff, password=null, role=User, money=2000, phone=+1 222 333 444, image=null), org.springframework.validation.BindingResult.currentUser=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2026-09-02T13:47:53.714+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [process/process.ftlh]
+2026-09-02T13:47:53.716+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T13:47:53.754+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T13:47:53.754+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T13:47:53.757+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T13:47:55.251+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2026-09-02T13:47:55.251+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.Coffee.controller.MainController#home(int, int, Model)
+2026-09-02T13:47:55.253+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T13:47:55.257+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.image,
+        c1_0.image_url,
+        c1_0.name,
+        c1_0.price,
+        c1_0.stock 
+    from
+        coffees c1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2026-09-02T13:47:55.262+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] org.hibernate.SQL                        : 
+    select
+        count(c1_0.id) 
+    from
+        coffees c1_0
+2026-09-02T13:47:55.273+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-09-02T13:47:55.274+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.w.s.view.freemarker.FreeMarkerView   : View name [index], model {username=fff@fff.fff, isAuthenticated=true, currentUser=UserDto(id=1, name=fff, email=fff@fff.fff, password=null, role=User, money=2000, phone=+1 222 333 444, image=null), coffees=[CoffeeDto(id=1, name=Espresso Masterpiece, description=Bold and rich espresso with a perfect crema., price=290, image=espresso.jpg, imageUrl=null, stock=50), CoffeeDto(id=2, name=Iced Favorites, description=Chilled, smooth, and perfect for any day., price=380, image=iced.jpg, imageUrl=null, stock=40), CoffeeDto(id=3, name=Coffee Favorites, description=Timeless classics that warm your soul., price=350, image=classic.jpg, imageUrl=null, stock=60), CoffeeDto(id=4, name=Organic Beans, description=Sustainably sourced and full of flavor., price=390, image=organic.jpg, imageUrl=null, stock=30), CoffeeDto(id=5, name=Latte, description=Smooth and creamy with a rich espresso base., price=420, image=latte.jpg, imageUrl=null, stock=45), CoffeeDto(id=6, name=Caramel Macchiato, description=Sweet caramel with smooth espresso., price=450, image=caramel.jpg, imageUrl=null, stock=35)], currentPage=1, totalPages=2, org.springframework.validation.BindingResult.currentUser=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2026-09-02T13:47:55.274+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [index.ftlh]
+2026-09-02T13:47:55.277+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T13:47:55.318+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T13:47:55.319+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T13:47:55.321+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:04:35.968+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/profile/messages", parameters={}
+2026-09-02T14:04:35.969+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.Coffee.controller.ProfileController#myMessages(Model, Authentication)
+2026-09-02T14:04:35.971+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:04:35.975+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:04:35.983+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.admin_id,
+        c1_0.admin_reply,
+        c1_0.created_at,
+        c1_0.email,
+        c1_0.message,
+        c1_0.name,
+        c1_0.replied_at,
+        c1_0.status,
+        c1_0.subject,
+        c1_0.user_id 
+    from
+        contacts c1_0 
+    where
+        c1_0.user_id=?
+2026-09-02T14:04:35.990+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.id=?
+2026-09-02T14:04:36.007+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-09-02T14:04:36.008+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.w.s.view.freemarker.FreeMarkerView   : View name [profile/messages], model {username=fff@fff.fff, isAuthenticated=true, currentUser=UserDto(id=1, name=fff, email=fff@fff.fff, password=null, role=User, money=2000, phone=+1 222 333 444, image=null), messages=[Contact(id=1, name=fff, email=fff@fff.fff, subject=dfsfs, message=sdfdsf, createdAt=2026-09-01T22:09:14.552878, status=REPLIED, adminReply=sps, repliedAt=2026-09-01T22:09:38.213897, userId=1, admin=User(id=2, name=zzz, email=zzz@zzz.zzz, password=$2a$10$g5qt/yuTzti0IO/gJdNqoeRSY9J0tegUTIHUkU1Qu0Za3Gx..HTUK, role=Admin, money=2000, phone=+996755555555, image=null))], org.springframework.validation.BindingResult.currentUser=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2026-09-02T14:04:36.009+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [profile/messages.ftlh]
+2026-09-02T14:04:36.013+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:04:36.059+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T14:04:36.060+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T14:04:36.063+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:04:38.488+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/profile", parameters={}
+2026-09-02T14:04:38.488+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.Coffee.controller.ProfileController#viewProfile(Model, Authentication)
+2026-09-02T14:04:38.490+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:04:38.493+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:04:38.498+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-09-02T14:04:38.498+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.w.s.view.freemarker.FreeMarkerView   : View name [profile/profile], model {username=fff@fff.fff, isAuthenticated=true, currentUser=UserDto(id=1, name=fff, email=fff@fff.fff, password=null, role=User, money=2000, phone=+1 222 333 444, image=null), org.springframework.validation.BindingResult.currentUser=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2026-09-02T14:04:38.498+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [profile/profile.ftlh]
+2026-09-02T14:04:38.499+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:04:38.539+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T14:04:38.539+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T14:04:38.541+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:04:40.563+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/profile/edit", parameters={}
+2026-09-02T14:04:40.563+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.Coffee.controller.ProfileController#editProfileShow(Model, Authentication)
+2026-09-02T14:04:40.565+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:04:40.568+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:04:40.585+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-09-02T14:04:40.586+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.w.s.view.freemarker.FreeMarkerView   : View name [profile/edit], model {username=fff@fff.fff, isAuthenticated=true, currentUser=UserDto(id=1, name=fff, email=fff@fff.fff, password=null, role=User, money=2000, phone=+1 222 333 444, image=null), org.springframework.validation.BindingResult.currentUser=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2026-09-02T14:04:40.586+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [profile/edit.ftlh]
+2026-09-02T14:04:40.586+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:04:40.623+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T14:04:40.623+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T14:04:40.625+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:05:06.722+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.DispatcherServlet        : POST "/profile/edit", parameters={multipart}
+2026-09-02T14:05:06.767+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.Coffee.controller.ProfileController#editProfile(User, MultipartFile, Authentication, Model)
+2026-09-02T14:05:06.769+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:05:06.776+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:05:06.780+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] org.hibernate.SQL                        : 
+    update
+        users 
+    set
+        email=?,
+        image=?,
+        money=?,
+        name=?,
+        password=?,
+        phone=?,
+        role=? 
+    where
+        id=?
+2026-09-02T14:05:06.784+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-09-02T14:05:06.784+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.w.s.view.freemarker.FreeMarkerView   : View name [profile/edit], model {username=fff@fff.fff, isAuthenticated=true, currentUser=UserDto(id=1, name=fff, email=fff@fff.fff, password=null, role=User, money=2000, phone=+1 222 333 444, image=null), user=User(id=1, name=fff, email=fff@fff.fff, password=, role=User, money=null, phone=+1 222 333 444, image=null), org.springframework.validation.BindingResult.user=org.springframework.validation.BeanPropertyBindingResult: 0 errors, success=Profile updated successfully!, org.springframework.validation.BindingResult.currentUser=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2026-09-02T14:05:06.784+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [profile/edit.ftlh]
+2026-09-02T14:05:06.786+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:05:06.857+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T14:05:06.857+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T14:05:06.859+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:05:08.418+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/profile", parameters={}
+2026-09-02T14:05:08.418+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.Coffee.controller.ProfileController#viewProfile(Model, Authentication)
+2026-09-02T14:05:08.420+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:05:08.423+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:05:08.429+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-09-02T14:05:08.429+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] o.s.w.s.view.freemarker.FreeMarkerView   : View name [profile/profile], model {username=fff@fff.fff, isAuthenticated=true, currentUser=UserDto(id=1, name=fff, email=fff@fff.fff, password=null, role=User, money=2000, phone=+1 222 333 444, image=/uploads/users/1788336306778.webp), org.springframework.validation.BindingResult.currentUser=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2026-09-02T14:05:08.429+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [profile/profile.ftlh]
+2026-09-02T14:05:08.431+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:05:08.471+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T14:05:08.471+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/uploads/users/1788336306778.webp", parameters={}
+2026-09-02T14:05:08.472+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T14:05:08.474+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:05:08.474+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2026-09-02T14:05:08.482+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:05:20.590+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T14:05:20.591+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T14:05:20.593+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:05:20.617+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/.well-known/appspecific/com.chrome.devtools.json", parameters={}
+2026-09-02T14:05:20.618+06:00  WARN 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.PageNotFound             : No mapping for GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-02T14:05:20.620+06:00  WARN 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.PageNotFound             : No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.
+2026-09-02T14:05:20.621+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.]
+2026-09-02T14:05:20.621+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2026-09-02T14:05:20.621+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2026-09-02T14:05:20.622+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.webmvc.autoconfigure.error.BasicErrorController#error(HttpServletRequest)
+2026-09-02T14:05:20.623+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:05:20.637+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-09-02T14:05:20.639+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Sep 02 14:05:20 GMT+06:00 2026, status=404, error=Not Found, path=/.well-known/appspe (truncated)...]
+2026-09-02T14:05:20.676+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2026-09-02T14:05:24.042+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/.well-known/appspecific/com.chrome.devtools.json", parameters={}
+2026-09-02T14:05:24.043+06:00  WARN 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.PageNotFound             : No mapping for GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-02T14:05:24.044+06:00  WARN 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.PageNotFound             : No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.
+2026-09-02T14:05:24.044+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.]
+2026-09-02T14:05:24.044+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2026-09-02T14:05:24.044+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2026-09-02T14:05:24.045+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.webmvc.autoconfigure.error.BasicErrorController#error(HttpServletRequest)
+2026-09-02T14:05:24.046+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:05:24.048+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-09-02T14:05:24.048+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Sep 02 14:05:24 GMT+06:00 2026, status=404, error=Not Found, path=/.well-known/appspe (truncated)...]
+2026-09-02T14:05:24.049+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2026-09-02T14:28:13.248+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/.well-known/appspecific/com.chrome.devtools.json", parameters={}
+2026-09-02T14:28:13.249+06:00  WARN 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.PageNotFound             : No mapping for GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-02T14:28:13.249+06:00  WARN 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.PageNotFound             : No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.
+2026-09-02T14:28:13.249+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.]
+2026-09-02T14:28:13.249+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2026-09-02T14:28:13.250+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2026-09-02T14:28:13.250+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.webmvc.autoconfigure.error.BasicErrorController#error(HttpServletRequest)
+2026-09-02T14:28:13.252+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:28:13.255+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-09-02T14:28:13.255+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Sep 02 14:28:13 GMT+06:00 2026, status=404, error=Not Found, path=/.well-known/appspe (truncated)...]
+2026-09-02T14:28:13.256+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-7] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2026-09-02T14:29:08.569+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/profile", parameters={}
+2026-09-02T14:29:08.569+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.Coffee.controller.ProfileController#viewProfile(Model, Authentication)
+2026-09-02T14:29:08.570+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:29:08.573+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:29:08.577+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-09-02T14:29:08.577+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.w.s.view.freemarker.FreeMarkerView   : View name [profile/profile], model {username=fff@fff.fff, isAuthenticated=true, currentUser=UserDto(id=1, name=fff, email=fff@fff.fff, password=null, role=User, money=2000, phone=+1 222 333 444, image=/uploads/users/1788336306778.webp), org.springframework.validation.BindingResult.currentUser=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2026-09-02T14:29:08.577+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [profile/profile.ftlh]
+2026-09-02T14:29:08.579+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:29:08.608+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T14:29:08.609+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/uploads/users/1788336306778.webp", parameters={}
+2026-09-02T14:29:08.609+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T14:29:08.609+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [URL [file:uploads/]]
+2026-09-02T14:29:08.611+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:29:08.613+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:29:14.023+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T14:29:14.024+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T14:29:14.026+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:29:14.088+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/.well-known/appspecific/com.chrome.devtools.json", parameters={}
+2026-09-02T14:29:14.088+06:00  WARN 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.PageNotFound             : No mapping for GET /.well-known/appspecific/com.chrome.devtools.json
+2026-09-02T14:29:14.088+06:00  WARN 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.PageNotFound             : No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.
+2026-09-02T14:29:14.088+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.NoHandlerFoundException: No endpoint GET /.well-known/appspecific/com.chrome.devtools.json.]
+2026-09-02T14:29:14.088+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2026-09-02T14:29:14.089+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
+2026-09-02T14:29:14.089+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.webmvc.autoconfigure.error.BasicErrorController#error(HttpServletRequest)
+2026-09-02T14:29:14.090+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T14:29:14.094+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/yaml]
+2026-09-02T14:29:14.094+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Sep 02 14:29:14 GMT+06:00 2026, status=404, error=Not Found, path=/.well-known/appspe (truncated)...]
+2026-09-02T14:29:14.096+06:00 DEBUG 5420 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2026-09-02T14:29:43.783+06:00  INFO 5420 --- [Coffee] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-02T14:29:43.791+06:00  INFO 5420 --- [Coffee] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-02T14:29:43.798+06:00  INFO 5420 --- [Coffee] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-02T14:29:43.802+06:00  INFO 5420 --- [Coffee] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-02T14:29:43.804+06:00  INFO 5420 --- [Coffee] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

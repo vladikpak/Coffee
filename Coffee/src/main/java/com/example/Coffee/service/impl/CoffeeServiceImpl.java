@@ -35,6 +35,7 @@ public class CoffeeServiceImpl implements CoffeeService {
         }
 
         Coffee savedCoffee = coffeeRepository.save(coffee);
+
         return convertToDto(savedCoffee);
     }
 
@@ -56,6 +57,7 @@ public class CoffeeServiceImpl implements CoffeeService {
         }
 
         Coffee savedCoffee = coffeeRepository.save(existingCoffee);
+
         return convertToDto(savedCoffee);
     }
 
@@ -63,6 +65,7 @@ public class CoffeeServiceImpl implements CoffeeService {
     public CoffeeDto getCoffeeById(Long id) {
         Coffee coffee = coffeeRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Coffee not found"));
+
         return convertToDto(coffee);
     }
 
@@ -85,7 +88,9 @@ public class CoffeeServiceImpl implements CoffeeService {
         if (keyword == null || keyword.trim().isEmpty()) {
             return getCoffeesPage(page, size);
         }
+
         Pageable pageable = PageRequest.of(page - 1, size);
+
         return coffeeRepository.findByNameContainingIgnoreCase(keyword.trim(), pageable)
                 .map(this::convertToDto);
     }

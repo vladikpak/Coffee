@@ -22,6 +22,7 @@ public class ContactServiceImpl implements ContactService {
     public void saveMessage(Contact contact) {
         contact.setStatus("NEW");
         contact.setCreatedAt(LocalDateTime.now());
+
         contactRepository.save(contact);
     }
 
@@ -44,8 +45,10 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public void markAsRead(Long id) {
         Contact contact = getMessageById(id);
+
         if ("NEW".equals(contact.getStatus())) {
             contact.setStatus("READ");
+
             contactRepository.save(contact);
         }
     }
@@ -53,10 +56,12 @@ public class ContactServiceImpl implements ContactService {
     @Override
     public void replyToMessage(Long id, String reply, User admin) {
         Contact contact = getMessageById(id);
+
         contact.setAdminReply(reply);
         contact.setAdmin(admin);
         contact.setRepliedAt(LocalDateTime.now());
         contact.setStatus("REPLIED");
+
         contactRepository.save(contact);
     }
 

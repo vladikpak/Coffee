@@ -39,14 +39,17 @@ public class OrderServiceImpl implements OrderService {
         }
 
         int totalPrice = coffee.getPrice() * quantity;
+
         if (user.getMoney() < totalPrice) {
             throw new RuntimeException("Not enough money! Need: $" + totalPrice);
         }
 
         user.setMoney(user.getMoney() - totalPrice);
+
         userRepository.save(user);
 
         coffee.setStock(coffee.getStock() - quantity);
+
         coffeeRepository.save(coffee);
 
         String orderNumber = "ORD-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
@@ -62,6 +65,7 @@ public class OrderServiceImpl implements OrderService {
                 .build();
 
         Order savedOrder = orderRepository.save(order);
+
         return convertToDto(savedOrder);
     }
 
@@ -86,6 +90,7 @@ public class OrderServiceImpl implements OrderService {
 
         order.setStatus("CANCELLED");
         order.setUpdatedAt(LocalDateTime.now());
+
         orderRepository.save(order);
     }
 
@@ -93,6 +98,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderDto getOrderById(Long id) {
         Order order = orderRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Order not found"));
+
         return convertToDto(order);
     }
 
@@ -100,6 +106,7 @@ public class OrderServiceImpl implements OrderService {
     public OrderDto getOrderByNumber(String number) {
         Order order = orderRepository.findByNumber(number)
                 .orElseThrow(() -> new RuntimeException("Order not found with number: " + number));
+
         return convertToDto(order);
     }
 

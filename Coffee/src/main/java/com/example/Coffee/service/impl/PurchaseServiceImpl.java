@@ -38,14 +38,17 @@ public class PurchaseServiceImpl implements PurchaseService {
         }
 
         int totalPrice = coffee.getPrice() * quantity;
+
         if (user.getMoney() < totalPrice) {
             throw new RuntimeException("Not enough money! Need: $" + totalPrice);
         }
 
         user.setMoney(user.getMoney() - totalPrice);
+
         userRepository.save(user);
 
         coffee.setStock(coffee.getStock() - quantity);
+
         coffeeRepository.save(coffee);
 
         Purchase purchase = Purchase.builder()
@@ -57,6 +60,7 @@ public class PurchaseServiceImpl implements PurchaseService {
                 .build();
 
         Purchase savedPurchase = purchaseRepository.save(purchase);
+
         return convertToDto(savedPurchase);
     }
 
@@ -64,6 +68,7 @@ public class PurchaseServiceImpl implements PurchaseService {
     public PurchaseDto getPurchaseById(Long id) {
         Purchase purchase = purchaseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Purchase not found"));
+
         return convertToDto(purchase);
     }
 

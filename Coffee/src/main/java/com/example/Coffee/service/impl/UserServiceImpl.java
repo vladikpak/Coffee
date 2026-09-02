@@ -40,6 +40,7 @@ public class UserServiceImpl implements UserService {
         }
 
         User savedUser = userRepository.save(user);
+
         return convertToDto(savedUser);
     }
 
@@ -74,6 +75,7 @@ public class UserServiceImpl implements UserService {
         }
 
         User savedUser = userRepository.save(existingUser);
+
         return convertToDto(savedUser);
     }
 
@@ -81,6 +83,7 @@ public class UserServiceImpl implements UserService {
     public UserDto findByEmail(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
+
         return convertToDto(user);
     }
 
