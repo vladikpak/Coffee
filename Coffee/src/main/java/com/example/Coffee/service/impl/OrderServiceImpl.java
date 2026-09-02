@@ -49,7 +49,6 @@ public class OrderServiceImpl implements OrderService {
         coffee.setStock(coffee.getStock() - quantity);
         coffeeRepository.save(coffee);
 
-        // 👇 ГЕНЕРИРУЕМ НОМЕР ЗАКАЗА
         String orderNumber = "ORD-" + UUID.randomUUID().toString().substring(0, 8).toUpperCase();
 
         Order order = Order.builder()
@@ -64,6 +63,30 @@ public class OrderServiceImpl implements OrderService {
 
         Order savedOrder = orderRepository.save(order);
         return convertToDto(savedOrder);
+    }
+
+    @Override
+    public void cancelOrder(Long id) {
+        Order order = orderRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Order not found"));
+
+        if ("PAID".equals(order.getStatus()) || "PENDING".equals(order.getStatus())) {
+            User user = order.getUser();
+
+            int refund = order.getQuantity() * order.getPriceAtTime();
+            user.setMoney(user.getMoney() + refund);
+
+            userRepository.save(user);
+
+            Coffee coffee = order.getCoffee();
+            coffee.setStock(coffee.getStock() + order.getQuantity());
+
+            coffeeRepository.save(coffee);
+        }
+
+        order.setStatus("CANCELLED");
+        order.setUpdatedAt(LocalDateTime.now());
+        orderRepository.save(order);
     }
 
     @Override
