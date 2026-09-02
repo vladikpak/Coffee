@@ -8,6 +8,8 @@ import java.util.List;
 public interface OrderService {
     OrderDto createOrder(Long userId, Long coffeeId, Integer quantity);
 
+    void cancelOrder(Long id);
+
     OrderDto getOrderById(Long id);
 
     OrderDto getOrderByNumber(String number);
