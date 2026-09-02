@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-md-6">
                             <p class="text-secondary mb-0 small">Date</p>
-                            <p class="fw-semibold">${order.createdAt?!""}</p>
+                            <p class="fw-semibold">${order.createdAt!""}</p>
                         </div>
                         <div class="col-md-6">
                             <p class="text-secondary mb-0 small">Customer</p>
