@@ -35,7 +35,9 @@ public class AuthController {
             if (user.getRole() == null) {
                 user.setRole(Role.User);
             }
+
             userService.createUser(user);
+
             return "redirect:/login?registered=true";
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());

@@ -3,7 +3,6 @@ package com.example.Coffee.controller;
 import com.example.Coffee.dto.CoffeeDto;
 import com.example.Coffee.dto.UserDto;
 import com.example.Coffee.model.Contact;
-import com.example.Coffee.repository.ContactRepository;
 import com.example.Coffee.service.CoffeeService;
 import com.example.Coffee.service.ContactService;
 import com.example.Coffee.service.UserService;
@@ -15,8 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -28,12 +25,9 @@ public class MainController {
     private final CoffeeService coffeeService;
 
     @GetMapping("/")
-    public String home(
-            @RequestParam(defaultValue = "1") int page,
-            @RequestParam(defaultValue = "6") int size,
-            Model model) {
-
+    public String home(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "6") int size, Model model) {
         Page<CoffeeDto> coffeePage = coffeeService.getCoffeesPage(page, size);
+
         model.addAttribute("coffees", coffeePage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", coffeePage.getTotalPages());

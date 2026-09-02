@@ -8,7 +8,6 @@
             <div class="card border-0 shadow-lg rounded-4">
                 <div class="card-body p-5">
 
-                    <!-- Заголовок -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <h2 class="fw-bold text-dark">
                             <i class="fas fa-receipt text-primary me-2"></i>Order #${order.number}
@@ -20,7 +19,6 @@
 
                     <hr>
 
-                    <!-- Информация -->
                     <div class="row g-3">
                         <div class="col-md-6">
                             <p class="text-secondary mb-0 small">Order Number</p>
@@ -54,7 +52,6 @@
 
                     <hr>
 
-                    <!-- Товар -->
                     <h5 class="fw-bold text-dark mb-3">
                         <i class="fas fa-coffee text-primary me-2"></i>Items
                     </h5>
@@ -86,7 +83,6 @@
 
                     <hr>
 
-                    <!-- Итог -->
                     <div class="d-flex justify-content-end">
                         <div style="min-width: 200px;">
                             <div class="d-flex justify-content-between py-1">
@@ -111,7 +107,6 @@
 
                     <hr>
 
-                    <!-- Кнопки -->
                     <div class="d-flex gap-3 mt-3">
                         <a href="/order/my" class="btn btn-outline-secondary">
                             <i class="fas fa-arrow-left me-2"></i>Back to Orders

@@ -23,15 +23,11 @@ public class PurchaseController {
     private final UserService userService;
 
     @PostMapping("/buy")
-    public String buyCoffee(
-            @RequestParam Long coffeeId,
-            @RequestParam Integer quantity,
-            Authentication auth,
-            Model model) {
-
+    public String buyCoffee(@RequestParam Long coffeeId, @RequestParam Integer quantity, Authentication auth, Model model) {
         try {
             UserDto currentUser = userService.findByEmail(auth.getName());
             purchaseService.createPurchase(currentUser.getId(), coffeeId, quantity);
+
             return "redirect:/purchase/success?coffeeId=" + coffeeId;
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
@@ -43,13 +39,16 @@ public class PurchaseController {
     public String myPurchases(Model model, Authentication auth) {
         UserDto currentUser = userService.findByEmail(auth.getName());
         List<PurchaseDto> purchases = purchaseService.getUserPurchases(currentUser.getId());
+
         model.addAttribute("purchases", purchases);
+
         return "purchase/list";
     }
 
     @GetMapping("/success")
     public String success(@RequestParam Long coffeeId, Model model) {
         model.addAttribute("coffee", coffeeService.getCoffeeById(coffeeId));
+
         return "purchase/success";
     }
 
@@ -57,6 +56,7 @@ public class PurchaseController {
     public String purchaseDetails(@PathVariable Long id, Model model) {
         PurchaseDto purchase = purchaseService.getPurchaseById(id);
         model.addAttribute("purchase", purchase);
+
         return "purchase/details";
     }
 }

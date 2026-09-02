@@ -30,6 +30,7 @@ public class ProfileController {
     public String viewProfile(Model model, Authentication auth) {
         UserDto currentUser = userService.findByEmail(auth.getName());
         model.addAttribute("currentUser", currentUser);
+
         return "profile/profile";
     }
 
@@ -37,6 +38,7 @@ public class ProfileController {
     public String editProfileShow(Model model, Authentication auth) {
         UserDto currentUser = userService.findByEmail(auth.getName());
         model.addAttribute("currentUser", currentUser);
+
         return "profile/edit";
     }
 
@@ -44,17 +46,14 @@ public class ProfileController {
     public String myMessages(Model model, Authentication auth) {
         UserDto currentUser = userService.findByEmail(auth.getName());
         List<Contact> messages = contactService.getMessagesByUserId(currentUser.getId());
+
         model.addAttribute("messages", messages);
+
         return "profile/messages";
     }
 
     @PostMapping("/edit")
-    public String editProfile(
-            @ModelAttribute User user,
-            @RequestParam(required = false) MultipartFile avatar,
-            Authentication auth,
-            Model model) {
-
+    public String editProfile(@ModelAttribute User user, @RequestParam(required = false) MultipartFile avatar, Authentication auth, Model model) {
         try {
             UserDto currentUser = userService.findByEmail(auth.getName());
             user.setId(currentUser.getId());

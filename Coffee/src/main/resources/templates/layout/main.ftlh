@@ -11,7 +11,6 @@
 </head>
 <body>
 
-<!-- ===== НАВИГАЦИЯ ===== -->
 <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <a class="navbar-brand" href="/">
@@ -66,10 +65,8 @@
     </div>
 </nav>
 
-<!-- ===== КОНТЕНТ ===== -->
 <#nested>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
     <div class="container">
         <div class="row">
@@ -114,119 +111,6 @@
         </div>
     </div>
 </footer>
-
-<style>
-    body {
-        background: #FDF8F3;
-        font-family: 'Segoe UI', sans-serif;
-    }
-    .navbar {
-        background: #2C1810;
-        padding: 15px 0;
-    }
-    .navbar-brand {
-        font-size: 1.5rem;
-        font-weight: 700;
-    }
-    .brand-icon {
-        font-size: 1.8rem;
-    }
-    .navbar-nav .nav-link {
-        color: rgba(255,255,255,0.7) !important;
-        font-weight: 500;
-        padding: 8px 16px;
-        transition: all 0.3s ease;
-    }
-    .navbar-nav .nav-link:hover {
-        color: #D4A574 !important;
-    }
-    .footer {
-        background: #2C1810;
-        color: rgba(255,255,255,0.7);
-        padding: 50px 0 20px;
-        margin-top: 40px;
-    }
-    .footer h5, .footer h6 {
-        color: #fff;
-    }
-    .footer ul {
-        list-style: none;
-        padding: 0;
-    }
-    .footer ul li a {
-        color: rgba(255,255,255,0.6);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: all 0.3s ease;
-    }
-    .footer ul li a:hover {
-        color: #D4A574;
-    }
-    .social-icons {
-        display: flex;
-        gap: 15px;
-        margin-top: 15px;
-    }
-    .social-icons a {
-        color: rgba(255,255,255,0.6);
-        font-size: 1.3rem;
-        transition: all 0.3s ease;
-    }
-    .social-icons a:hover {
-        color: #D4A574;
-        transform: translateY(-3px);
-    }
-    .footer-newsletter {
-        display: flex;
-        gap: 5px;
-    }
-    .footer-newsletter input {
-        flex: 1;
-        padding: 8px 15px;
-        border-radius: 30px;
-        border: 1px solid rgba(255,255,255,0.1);
-        background: rgba(255,255,255,0.05);
-        color: #fff;
-        outline: none;
-    }
-    .footer-newsletter input::placeholder {
-        color: rgba(255,255,255,0.3);
-    }
-    .footer-newsletter button {
-        padding: 8px 18px;
-        border-radius: 30px;
-        border: none;
-        background: #D4A574;
-        color: #fff;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-    .footer-newsletter button:hover {
-        background: #A67B5B;
-    }
-    .footer hr {
-        border-color: rgba(255,255,255,0.05);
-        margin: 20px 0;
-    }
-    .footer small {
-        opacity: 0.5;
-    }
-    @media (max-width: 768px) {
-        .navbar-nav {
-            text-align: center;
-        }
-        .footer .row {
-            text-align: center;
-        }
-        .social-icons {
-            justify-content: center;
-        }
-        .footer-newsletter {
-            flex-direction: column;
-        }
-    }
-</style>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

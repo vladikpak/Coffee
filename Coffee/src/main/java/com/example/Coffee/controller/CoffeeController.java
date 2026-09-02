@@ -18,12 +18,10 @@ public class CoffeeController {
     private final CoffeeService coffeeService;
 
     @GetMapping("/list")
-    public String listCoffees(
-            @RequestParam(defaultValue = "1") int page,
-            @RequestParam(defaultValue = "6") int size,
-            Model model) {
+    public String listCoffees(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "6") int size, Model model) {
 
         Page<CoffeeDto> coffeePage = coffeeService.getCoffeesPage(page, size);
+
         model.addAttribute("coffees", coffeePage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", coffeePage.getTotalPages());
@@ -36,17 +34,14 @@ public class CoffeeController {
     public String coffeeDetails(@PathVariable Long id, Model model) {
         CoffeeDto coffee = coffeeService.getCoffeeById(id);
         model.addAttribute("coffee", coffee);
+
         return "coffee/details";
     }
 
     @GetMapping("/search")
-    public String searchCoffees(
-            @RequestParam String keyword,
-            @RequestParam(defaultValue = "1") int page,
-            @RequestParam(defaultValue = "6") int size,
-            Model model) {
-
+    public String searchCoffees(@RequestParam String keyword, @RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "6") int size, Model model) {
         Page<CoffeeDto> coffeePage = coffeeService.searchCoffees(keyword, page, size);
+
         model.addAttribute("coffees", coffeePage.getContent());
         model.addAttribute("currentPage", page);
         model.addAttribute("totalPages", coffeePage.getTotalPages());
@@ -62,9 +57,7 @@ public class CoffeeController {
     }
 
     @PostMapping("/create")
-    public String createCoffee(
-            @ModelAttribute Coffee coffee,
-            @RequestParam(required = false) MultipartFile image) {
+    public String createCoffee(@ModelAttribute Coffee coffee, @RequestParam(required = false) MultipartFile image) {
 
         coffeeService.createCoffee(coffee, image);
         return "redirect:/coffee/list";
@@ -74,15 +67,12 @@ public class CoffeeController {
     public String editCoffeeShow(@PathVariable Long id, Model model) {
         CoffeeDto coffee = coffeeService.getCoffeeById(id);
         model.addAttribute("coffee", coffee);
+
         return "coffee/edit";
     }
 
     @PostMapping("/edit/{id}")
-    public String editCoffee(
-            @PathVariable Long id,
-            @ModelAttribute Coffee coffee,
-            @RequestParam(required = false) MultipartFile image) {
-
+    public String editCoffee(@PathVariable Long id, @ModelAttribute Coffee coffee, @RequestParam(required = false) MultipartFile image) {
         coffeeService.updateCoffee(coffee, id, image);
         return "redirect:/coffee/list";
     }

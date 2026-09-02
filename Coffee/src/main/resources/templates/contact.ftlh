@@ -64,19 +64,4 @@
     </div>
 </div>
 
-<style>
-    .contact-title { font-size: 3rem; font-weight: 800; color: #2C1810; }
-    .contact-subtitle { font-size: 1.2rem; color: #8B6B4D; margin-bottom: 30px; }
-    .contact-info { display: flex; flex-direction: column; gap: 20px; }
-    .contact-item { display: flex; align-items: center; gap: 20px; background: #fff; padding: 20px 25px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-    .contact-icon { font-size: 2rem; flex-shrink: 0; }
-    .contact-item h4 { font-size: 1rem; color: #2C1810; margin: 0; }
-    .contact-item p { color: #8B6B4D; margin: 0; }
-    .contact-form-card { background: #fff; padding: 35px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-    .contact-form-card h3 { font-size: 1.5rem; color: #2C1810; margin-bottom: 20px; }
-    .contact-form-card .form-control { border-radius: 12px; border: 1px solid #F5EDE6; padding: 12px 16px; margin-bottom: 15px; background: #FDF8F3; }
-    .btn-send { padding: 12px 35px; border-radius: 30px; border: none; background: #D4A574; color: #fff; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
-    .btn-send:hover { background: #A67B5B; }
-</style>
-
 </@layout.layout>

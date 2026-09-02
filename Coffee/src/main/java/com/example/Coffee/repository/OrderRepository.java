@@ -14,15 +14,5 @@ import java.util.Optional;
 public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByUserIdOrderByCreatedAtDesc(Long userId);
 
-    List<Order> findByStatusOrderByCreatedAtDesc(String status);
-
     Optional<Order> findByNumber(String number);
-
-    List<Order> findByUserIdAndStatus(Long userId, String status);
-
-    @Query("SELECT COUNT(o) FROM Order o WHERE o.status = :status")
-    Long countByStatus(@Param("status") String status);
-
-    @Query("SELECT SUM(o.quantity * o.priceAtTime) FROM Order o WHERE o.user.id = :userId")
-    Integer getTotalOrderAmountByUser(@Param("userId") Long userId);
 }

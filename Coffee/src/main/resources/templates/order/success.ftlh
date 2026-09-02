@@ -8,7 +8,6 @@
             <div class="card border-0 shadow-lg rounded-4">
                 <div class="card-body p-5 text-center">
 
-                    <!-- Иконка успеха -->
                     <div class="mb-4">
                         <div class="bg-success bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center mx-auto"
                              style="width: 100px; height: 100px;">

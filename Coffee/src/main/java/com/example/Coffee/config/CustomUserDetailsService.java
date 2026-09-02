@@ -1,6 +1,5 @@
 package com.example.Coffee.config;
 
-
 import com.example.Coffee.model.User;
 import com.example.Coffee.repository.UserRepository;
 import lombok.RequiredArgsConstructor;

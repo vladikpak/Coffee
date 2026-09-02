@@ -26,8 +26,10 @@ public class OrderController {
     @GetMapping("/create")
     public String createOrderShow(@RequestParam Long coffeeId, Model model) {
         CoffeeDto coffee = coffeeService.getCoffeeById(coffeeId);
+
         model.addAttribute("coffee", coffee);
         model.addAttribute("coffeeId", coffeeId);
+
         return "order/create";
     }
 
@@ -36,10 +38,12 @@ public class OrderController {
         try {
             UserDto currentUser = userService.findByEmail(auth.getName());
             orderService.createOrder(currentUser.getId(), coffeeId, quantity);
+
             return "redirect:/order/success";
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
             model.addAttribute("coffeeId", coffeeId);
+
             return "order/create";
         }
     }
@@ -48,6 +52,7 @@ public class OrderController {
     public String orderByNumber(@PathVariable String number, Model model) {
         OrderDto order = orderService.getOrderByNumber(number);
         model.addAttribute("order", order);
+
         return "order/details";
     }
 
@@ -55,6 +60,7 @@ public class OrderController {
     public String orderDetails(@PathVariable Long id, Model model) {
         OrderDto order = orderService.getOrderById(id);
         model.addAttribute("order", order);
+
         return "order/details";
     }
 
@@ -62,7 +68,9 @@ public class OrderController {
     public String myOrders(Model model, Authentication auth) {
         UserDto currentUser = userService.findByEmail(auth.getName());
         List<OrderDto> orders = orderService.getUserOrders(currentUser.getId());
+
         model.addAttribute("orders", orders);
+
         return "order/list";
     }
 

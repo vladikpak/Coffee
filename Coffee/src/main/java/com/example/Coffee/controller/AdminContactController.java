@@ -23,26 +23,28 @@ public class AdminContactController {
     @GetMapping
     public String listMessages(Model model) {
         List<Contact> messages = contactService.getAllMessages();
+
         long newCount = messages.stream()
                 .filter(m -> "NEW".equals(m.getStatus()))
                 .count();
+
         model.addAttribute("messages", messages);
         model.addAttribute("newCount", newCount);
+
         return "admin/contacts/list";
     }
 
     @GetMapping("/{id}")
     public String viewMessage(@PathVariable Long id, Model model) {
         contactService.markAsRead(id);
+
         Contact contact = contactService.getMessageById(id);
         model.addAttribute("contact", contact);
         return "admin/contacts/view";
     }
 
     @PostMapping("/{id}/reply")
-    public String replyToMessage(@PathVariable Long id,
-                                 @RequestParam String reply,
-                                 Authentication auth) {
+    public String replyToMessage(@PathVariable Long id, @RequestParam String reply, Authentication auth) {
         User admin = userService.findEntityByEmail(auth.getName());
         contactService.replyToMessage(id, reply, admin);
         return "redirect:/admin/contacts";

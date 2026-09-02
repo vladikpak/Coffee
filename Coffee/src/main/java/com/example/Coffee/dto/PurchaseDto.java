@@ -1,7 +1,5 @@
 package com.example.Coffee.dto;
 
-import com.example.Coffee.model.Coffee;
-import com.example.Coffee.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
