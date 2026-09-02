@@ -74,8 +74,14 @@ public class OrderController {
         return "order/list";
     }
 
+    @PostMapping("/cancel/{id}")
+    public String cancelOrder(@PathVariable Long id) {
+        orderService.cancelOrder(id);
+        return "redirect:/order/my";
+    }
+
     @GetMapping("/success")
-    public String success(@RequestParam(required = false) String orderNumber, Model model, Authentication auth) {
+    public String success(@RequestParam(required = false) String orderNumber, Model model) {
         if (orderNumber != null) {
             try {
                 OrderDto order = orderService.getOrderByNumber(orderNumber);
