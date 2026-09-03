@@ -6,6 +6,7 @@ import com.example.Coffee.dto.UserDto;
 import com.example.Coffee.service.CoffeeService;
 import com.example.Coffee.service.OrderService;
 import com.example.Coffee.service.UserService;
+import com.example.Coffee.service.impl.EmailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderController {
 
+    private final EmailService emailService;
     private final OrderService orderService;
     private final CoffeeService coffeeService;
     private final UserService userService;
@@ -37,7 +39,10 @@ public class OrderController {
     public String createOrder(@RequestParam Long coffeeId, @RequestParam Integer quantity, Authentication auth, Model model) {
         try {
             UserDto currentUser = userService.findByEmail(auth.getName());
-            orderService.createOrder(currentUser.getId(), coffeeId, quantity);
+            OrderDto order = orderService.createOrder(currentUser.getId(), coffeeId, quantity);
+
+            // 👇 ОТПРАВЛЯЕМ ПОДТВЕРЖДЕНИЕ ЗАКАЗА
+            emailService.sendOrderConfirmation(order, currentUser);
 
             return "redirect:/order/success";
         } catch (Exception e) {

@@ -16,7 +16,7 @@ public interface ContactService {
 
     void markAsRead(Long id);
 
-    void replyToMessage(Long id, String reply, User admin);
+    Contact replyToMessage(Long id, String reply, User admin);
 
     void deleteMessage(Long id);
 }

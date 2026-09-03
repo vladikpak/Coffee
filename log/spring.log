@@ -2518,3 +2518,153 @@ Encountered "!", but was expecting pattern:
 2026-09-02T14:31:02.435+06:00 DEBUG 6536 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
 2026-09-02T14:31:02.436+06:00 DEBUG 6536 --- [Coffee] [http-nio-8089-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
 2026-09-02T14:31:02.438+06:00 DEBUG 6536 --- [Coffee] [http-nio-8089-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T14:56:39.547+06:00  INFO 6536 --- [Coffee] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-02T14:56:39.551+06:00  INFO 6536 --- [Coffee] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-02T14:56:39.555+06:00  INFO 6536 --- [Coffee] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-02T14:56:39.557+06:00  INFO 6536 --- [Coffee] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-02T14:56:39.559+06:00  INFO 6536 --- [Coffee] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-09-02T17:27:53.127+06:00  INFO 7404 --- [Coffee] [main] com.example.Coffee.CoffeeApplication     : Starting CoffeeApplication using Java 26.0.2.1 with PID 7404 (C:\Users\User\Desktop\Independent_project\Coffee\Coffee\target\classes started by User in C:\Users\User\Desktop\Independent_project\Coffee)
+2026-09-02T17:27:53.130+06:00  INFO 7404 --- [Coffee] [main] com.example.Coffee.CoffeeApplication     : No active profile set, falling back to 1 default profile: "default"
+2026-09-02T17:27:55.384+06:00  INFO 7404 --- [Coffee] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-09-02T17:27:55.480+06:00  INFO 7404 --- [Coffee] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84 ms. Found 5 JPA repository interfaces.
+2026-09-02T17:27:56.270+06:00  INFO 7404 --- [Coffee] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8089 (http)
+2026-09-02T17:27:56.286+06:00  INFO 7404 --- [Coffee] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-02T17:27:56.287+06:00  INFO 7404 --- [Coffee] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-09-02T17:27:56.368+06:00  INFO 7404 --- [Coffee] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 3186 ms
+2026-09-02T17:27:56.667+06:00 DEBUG 7404 --- [Coffee] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2026-09-02T17:27:56.668+06:00 DEBUG 7404 --- [Coffee] [main] o.s.w.s.r.ResourceUrlEncodingFilter      : Filter 'resourceUrlEncodingFilter' configured for use
+2026-09-02T17:27:56.815+06:00  INFO 7404 --- [Coffee] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-09-02T17:27:57.199+06:00  INFO 7404 --- [Coffee] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:./db/test user=ROOT
+2026-09-02T17:27:57.201+06:00  INFO 7404 --- [Coffee] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-09-02T17:27:57.250+06:00  INFO 7404 --- [Coffee] [main] liquibase.database                       : Set default schema name to PUBLIC
+2026-09-02T17:27:57.645+06:00  INFO 7404 --- [Coffee] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2026-09-02T17:27:57.738+06:00  INFO 7404 --- [Coffee] [main] liquibase.ui                             : Database is up to date, no changesets to execute
+2026-09-02T17:27:57.740+06:00  INFO 7404 --- [Coffee] [main] liquibase.changelog                      : Reading from PUBLIC.DATABASECHANGELOG
+2026-09-02T17:27:57.749+06:00  INFO 7404 --- [Coffee] [main] liquibase.util                           : UPDATE SUMMARY
+2026-09-02T17:27:57.750+06:00  INFO 7404 --- [Coffee] [main] liquibase.util                           : Run:                          0
+2026-09-02T17:27:57.750+06:00  INFO 7404 --- [Coffee] [main] liquibase.util                           : Previously run:               6
+2026-09-02T17:27:57.750+06:00  INFO 7404 --- [Coffee] [main] liquibase.util                           : Filtered out:                 0
+2026-09-02T17:27:57.750+06:00  INFO 7404 --- [Coffee] [main] liquibase.util                           : -------------------------------
+2026-09-02T17:27:57.750+06:00  INFO 7404 --- [Coffee] [main] liquibase.util                           : Total change sets:            6
+2026-09-02T17:27:57.751+06:00  INFO 7404 --- [Coffee] [main] liquibase.util                           : Update summary generated
+2026-09-02T17:27:57.752+06:00  INFO 7404 --- [Coffee] [main] liquibase.command                        : Command execution complete
+2026-09-02T17:27:59.410+06:00  INFO 7404 --- [Coffee] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-09-02T17:27:59.464+06:00  INFO 7404 --- [Coffee] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-09-02T17:27:59.999+06:00  INFO 7404 --- [Coffee] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-09-02T17:28:00.081+06:00  INFO 7404 --- [Coffee] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:./db/test]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: TEST/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-09-02T17:28:01.262+06:00  INFO 7404 --- [Coffee] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-09-02T17:28:01.340+06:00  INFO 7404 --- [Coffee] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-09-02T17:28:01.434+06:00  INFO 7404 --- [Coffee] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-09-02T17:28:02.069+06:00  WARN 7404 --- [Coffee] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-09-02T17:28:02.165+06:00  INFO 7404 --- [Coffee] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-09-02T17:28:02.471+06:00  INFO 7404 --- [Coffee] [main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-09-02T17:28:02.597+06:00 DEBUG 7404 --- [Coffee] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 44 mappings in 'requestMappingHandlerMapping'
+2026-09-02T17:28:02.630+06:00 DEBUG 7404 --- [Coffee] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /static/**, /css/**, /images/**, /photo/**, /uploads/**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2026-09-02T17:28:02.664+06:00 DEBUG 7404 --- [Coffee] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 1 @ModelAttribute, 0 @InitBinder, 2 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-09-02T17:28:02.779+06:00 DEBUG 7404 --- [Coffee] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-09-02T17:28:03.211+06:00 DEBUG 7404 --- [Coffee] [main] o.s.w.s.v.f.FreeMarkerConfigurer         : File system access not preferred: using SpringTemplateLoader
+2026-09-02T17:28:03.446+06:00  INFO 7404 --- [Coffee] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-09-02T17:28:03.601+06:00  INFO 7404 --- [Coffee] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8089 (http) with context path '/'
+2026-09-02T17:28:03.617+06:00  INFO 7404 --- [Coffee] [main] com.example.Coffee.CoffeeApplication     : Started CoffeeApplication in 11.294 seconds (process running for 12.039)
+2026-09-02T17:28:03.868+06:00  WARN 7404 --- [Coffee] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /v3/api-docs endpoint is enabled by default. To disable it in production, set the property 'springdoc.api-docs.enabled=false'
+2026-09-02T17:28:03.869+06:00  WARN 7404 --- [Coffee] [main] o.s.core.events.SpringDocAppInitializer  : SpringDoc /swagger-ui.html endpoint is enabled by default. To disable it in production, set the property 'springdoc.swagger-ui.enabled=false'
+2026-09-02T17:28:30.033+06:00  INFO 7404 --- [Coffee] [http-nio-8089-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-02T17:28:30.033+06:00  INFO 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-02T17:28:30.034+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2026-09-02T17:28:30.034+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2026-09-02T17:28:30.036+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@75351aec
+2026-09-02T17:28:30.037+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@4a9d0c6f
+2026-09-02T17:28:30.037+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='true': request parameters and headers will be shown which may lead to unsafe logging of potentially sensitive data
+2026-09-02T17:28:30.037+06:00  INFO 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-09-02T17:28:30.749+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T17:28:30.808+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
+2026-09-02T17:28:30.812+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.example.Coffee.controller.MainController#home(int, int, Model)
+2026-09-02T17:28:30.843+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T17:28:30.923+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] org.hibernate.SQL                        : 
+    select
+        c1_0.id,
+        c1_0.description,
+        c1_0.image,
+        c1_0.image_url,
+        c1_0.name,
+        c1_0.price,
+        c1_0.stock 
+    from
+        coffees c1_0 
+    offset
+        ? rows 
+    fetch
+        first ? rows only
+2026-09-02T17:28:30.939+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] org.hibernate.SQL                        : 
+    select
+        count(c1_0.id) 
+    from
+        coffees c1_0
+2026-09-02T17:28:31.116+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
+2026-09-02T17:28:31.118+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.w.s.view.freemarker.FreeMarkerView   : View name [index], model {isAuthenticated=true, currentUser=UserDto(id=1, name=fff, email=fff@fff.fff, password=null, role=User, money=2000, phone=+1 222 333 444, image=/uploads/users/1788336306778.webp), username=fff@fff.fff, coffees=[CoffeeDto(id=1, name=Espresso Masterpiece, description=Bold and rich espresso with a perfect crema., price=290, image=espresso.jpg, imageUrl=null, stock=50), CoffeeDto(id=2, name=Iced Favorites, description=Chilled, smooth, and perfect for any day., price=380, image=iced.jpg, imageUrl=null, stock=40), CoffeeDto(id=3, name=Coffee Favorites, description=Timeless classics that warm your soul., price=350, image=classic.jpg, imageUrl=null, stock=60), CoffeeDto(id=4, name=Organic Beans, description=Sustainably sourced and full of flavor., price=390, image=organic.jpg, imageUrl=null, stock=30), CoffeeDto(id=5, name=Latte, description=Smooth and creamy with a rich espresso base., price=420, image=latte.jpg, imageUrl=null, stock=45), CoffeeDto(id=6, name=Caramel Macchiato, description=Sweet caramel with smooth espresso., price=450, image=caramel.jpg, imageUrl=null, stock=35)], currentPage=1, totalPages=2, org.springframework.validation.BindingResult.currentUser=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
+2026-09-02T17:28:31.120+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [index.ftlh]
+2026-09-02T17:28:31.436+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T17:28:31.566+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/css/style.css", parameters={}
+2026-09-02T17:28:31.570+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [static/css/]]
+2026-09-02T17:28:31.579+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T17:28:43.426+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/actuator/health", parameters={}
+2026-09-02T17:28:43.429+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.image,
+        u1_0.money,
+        u1_0.name,
+        u1_0.password,
+        u1_0.phone,
+        u1_0.role 
+    from
+        users u1_0 
+    where
+        u1_0.email=?
+2026-09-02T17:28:43.443+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/octet-stream" to []
+2026-09-02T17:28:43.466+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/vnd.spring-boot.actuator.v3+json;q=0.8', given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7] and supported [application/vnd.spring-boot.actuator.v3+json, application/vnd.spring-boot.actuator.v2+json, application/json]
+2026-09-02T17:28:43.468+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [org.springframework.boot.health.actuate.endpoint.SystemHealthDescriptor@43640ff7]
+2026-09-02T17:28:43.544+06:00 DEBUG 7404 --- [Coffee] [http-nio-8089-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2026-09-02T17:31:12.789+06:00  INFO 7404 --- [Coffee] [SpringApplicationShutdownHook] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-09-02T17:31:12.794+06:00  INFO 7404 --- [Coffee] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-09-02T17:31:12.804+06:00  INFO 7404 --- [Coffee] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-09-02T17:31:12.809+06:00  INFO 7404 --- [Coffee] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-09-02T17:31:12.811+06:00  INFO 7404 --- [Coffee] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

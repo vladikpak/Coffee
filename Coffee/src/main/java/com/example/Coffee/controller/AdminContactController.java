@@ -4,6 +4,7 @@ import com.example.Coffee.model.Contact;
 import com.example.Coffee.model.User;
 import com.example.Coffee.service.ContactService;
 import com.example.Coffee.service.UserService;
+import com.example.Coffee.service.impl.EmailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminContactController {
 
+    private final EmailService emailService;
     private final ContactService contactService;
     private final UserService userService;
 
@@ -46,7 +48,11 @@ public class AdminContactController {
     @PostMapping("/{id}/reply")
     public String replyToMessage(@PathVariable Long id, @RequestParam String reply, Authentication auth) {
         User admin = userService.findEntityByEmail(auth.getName());
-        contactService.replyToMessage(id, reply, admin);
+
+        Contact contact = contactService.replyToMessage(id, reply, admin);
+
+        // 👇 ОТПРАВЛЯЕМ ОТВЕТ НА EMAIL ПОЛЬЗОВАТЕЛЯ
+        emailService.sendAdminReply(contact.getEmail(), contact.getName(), reply);
         return "redirect:/admin/contacts";
     }
 

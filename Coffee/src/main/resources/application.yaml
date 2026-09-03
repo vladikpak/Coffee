@@ -2,6 +2,22 @@ server:
   port: 8089
 
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: vladikpak30092003@gmail.com
+    password: meaj qoit lnia vkzp
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+            connection timeout: 5000
+            timeout: 5000
+            write timeout: 5000
+
   config:
     import: optional:file:.env[.properties]
 
@@ -39,6 +55,14 @@ spring:
         max-request-size: 50MB
         file-size-threshold: 2KB
 
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: health,info,metrics
+    health:
+      show-details: always
+
 logging:
     level:
       org.springframework.web: DEBUG
@@ -48,3 +72,6 @@ logging:
       org.springframework.web.servlet.resource: DEBUG
     file:
       path: log
+      name: logs/app.log
+    pattern:
+      file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"

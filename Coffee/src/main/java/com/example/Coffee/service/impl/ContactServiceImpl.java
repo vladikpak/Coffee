@@ -54,7 +54,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public void replyToMessage(Long id, String reply, User admin) {
+    public Contact replyToMessage(Long id, String reply, User admin) {
         Contact contact = getMessageById(id);
 
         contact.setAdminReply(reply);
@@ -62,7 +62,7 @@ public class ContactServiceImpl implements ContactService {
         contact.setRepliedAt(LocalDateTime.now());
         contact.setStatus("REPLIED");
 
-        contactRepository.save(contact);
+       return contactRepository.save(contact);
     }
 
     @Override

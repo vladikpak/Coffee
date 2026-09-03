@@ -2,6 +2,7 @@ package com.example.Coffee.service;
 
 import com.example.Coffee.dto.CoffeeDto;
 import com.example.Coffee.model.Coffee;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.data.domain.Page;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,6 +22,9 @@ public interface CoffeeService {
     Page<CoffeeDto> searchCoffees(String keyword, int page, int size);
 
     void deleteCoffee(Long id);
+
+    @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)
+    void clearCache();
 
     CoffeeDto convertToDto(Coffee coffee);
 }

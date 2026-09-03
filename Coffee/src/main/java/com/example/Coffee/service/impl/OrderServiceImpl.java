@@ -119,13 +119,18 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDto convertToDto(Order order) {
+        Long userId = order.getUser() != null ? order.getUser().getId() : null;
+        String userName = order.getUser() != null ? order.getUser().getName() : null;
+        Long coffeeId = order.getCoffee() != null ? order.getCoffee().getId() : null;
+        String coffeeName = order.getCoffee() != null ? order.getCoffee().getName() : null;
+
         return OrderDto.builder()
                 .id(order.getId())
                 .number(order.getNumber())
-                .userId(order.getUser().getId())
-                .userName(order.getUser().getName())
-                .coffeeId(order.getCoffee().getId())
-                .coffeeName(order.getCoffee().getName())
+                .userId(userId)
+                .userName(userName)
+                .coffeeId(coffeeId)
+                .coffeeName(coffeeName)
                 .quantity(order.getQuantity())
                 .priceAtTime(order.getPriceAtTime())
                 .total(order.getQuantity() * order.getPriceAtTime())

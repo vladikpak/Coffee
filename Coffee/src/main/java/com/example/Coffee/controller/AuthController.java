@@ -4,6 +4,7 @@ import com.example.Coffee.dto.UserDto;
 import com.example.Coffee.model.Role;
 import com.example.Coffee.model.User;
 import com.example.Coffee.service.UserService;
+import com.example.Coffee.service.impl.EmailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RequiredArgsConstructor
 public class AuthController {
 
+    private final EmailService emailService;
     private final UserService userService;
 
     @GetMapping("/login")
@@ -35,8 +37,10 @@ public class AuthController {
             if (user.getRole() == null) {
                 user.setRole(Role.User);
             }
+            UserDto savedUser = userService.createUser(user);
 
-            userService.createUser(user);
+            // 👇 ОТПРАВЛЯЕМ ПРИВЕТСТВЕННОЕ ПИСЬМО
+            emailService.sendWelcomeEmail(savedUser);
 
             return "redirect:/login?registered=true";
         } catch (Exception e) {
