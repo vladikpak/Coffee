@@ -22,10 +22,16 @@ jobs:
         cache: maven
 
     - name: Build with Maven
-      run: mvn clean compile
+      run: |
+        cd Coffee
+        mvn clean compile
 
     - name: Run tests
-      run: mvn test
+      run: |
+        cd Coffee
+        mvn test
 
     - name: Run Checkstyle
-      run: mvn checkstyle:check
+      run: |
+        cd Coffee
+        mvn checkstyle:check
