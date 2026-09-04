@@ -1,7 +1,7 @@
 # Сборка
 FROM eclipse-temurin:26-jdk-alpine AS build
 WORKDIR /app
-COPY . .
+COPY Coffee .
 RUN ./mvnw clean package -DskipTests
 
 # Запуск
