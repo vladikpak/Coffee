@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @Transactional
 public class OrderServiceImpl implements OrderService {
 
+    private final MessageQueueService messageQueueService;
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
     private final CoffeeRepository coffeeRepository;
@@ -65,6 +66,12 @@ public class OrderServiceImpl implements OrderService {
                 .build();
 
         Order savedOrder = orderRepository.save(order);
+
+        OrderDto result = convertToDto(savedOrder);
+
+        if (false) {
+            messageQueueService.sendOrderCreated(result);
+        }
 
         return convertToDto(savedOrder);
     }
