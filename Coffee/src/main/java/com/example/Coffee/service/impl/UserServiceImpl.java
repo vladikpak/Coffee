@@ -29,6 +29,13 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("User with this email already exists!");
         }
 
+        if (user.getRole() == Role.Admin) {
+            boolean adminExists = userRepository.existsByRole(Role.Admin);
+            if (adminExists) {
+                throw new RuntimeException("Администратор уже существует! Нельзя создать второго.");
+            }
+        }
+
         if (user.getRole() == null) {
             user.setRole(Role.User);
         }
