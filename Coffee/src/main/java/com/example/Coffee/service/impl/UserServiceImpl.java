@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         if (user.getMoney() == null) {
-            user.setMoney(2000);
+            user.setMoney(20000);
         }
 
         User savedUser = userRepository.save(user);
