@@ -29,7 +29,7 @@ public class CoffeeServiceImpl implements CoffeeService {
     // 8. СОЗДАТЬ КОФЕ (ОЧИЩАЕТ КЭШ)
     // ============================================================
     @Override
-    @CacheEvict(value = {"coffees", "coffee"}, allEntries = true) // 👈 ОЧИЩАЕТ ВСЁ
+    @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)
     public CoffeeDto createCoffee(Coffee coffee, MultipartFile image) {
         System.out.println("🟢 Создаю новый кофе: " + coffee.getName());
 
@@ -51,7 +51,7 @@ public class CoffeeServiceImpl implements CoffeeService {
     // 9. ОБНОВИТЬ КОФЕ (ОЧИЩАЕТ КЭШ)
     // ============================================================
     @Override
-    @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)  // 👈 ОЧИЩАЕТ ВСЁ
+    @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)
     public CoffeeDto updateCoffee(Coffee coffee, Long id, MultipartFile image) {
         System.out.println("🟡 Обновляю кофе ID: " + id);
 
@@ -133,7 +133,7 @@ public class CoffeeServiceImpl implements CoffeeService {
     // 10. УДАЛИТЬ КОФЕ (ОЧИЩАЕТ КЭШ)
     // ============================================================
     @Override
-    @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)  // 👈 ОЧИЩАЕТ ВСЁ
+    @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)
     public void deleteCoffee(Long id) {
         System.out.println("🔴 Удаляю кофе ID: " + id);
         coffeeRepository.deleteById(id);

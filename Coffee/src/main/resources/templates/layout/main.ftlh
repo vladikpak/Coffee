@@ -96,14 +96,6 @@
                     <li><a href="#">Terms of Service</a></li>
                 </ul>
             </div>
-            <div class="col-lg-4">
-                <h6>Newsletter</h6>
-                <p>Subscribe for updates and special offers.</p>
-                <form class="footer-newsletter">
-                    <input type="email" placeholder="Your email">
-                    <button type="submit">→</button>
-                </form>
-            </div>
         </div>
         <hr>
         <div class="text-center">

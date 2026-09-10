@@ -18,7 +18,6 @@ public class EmailService {
     private static final Logger log = LoggerFactory.getLogger(EmailService.class);
     private final JavaMailSender mailSender;
 
-    // ===== ОТПРАВИТЬ ПРИВЕТСТВЕННОЕ ПИСЬМО =====
     public void sendWelcomeEmail(UserDto user) {
         String subject = "☕ Welcome to Brewly!";
         String text = """
@@ -36,7 +35,6 @@ public class EmailService {
         sendEmail(user.getEmail(), subject, text);
     }
 
-    // ===== ОТПРАВИТЬ ПРИ ЗАКАЗЕ =====
     public void sendOrderConfirmation(OrderDto order, UserDto user) {
         String subject = "☕ Order Confirmed! #" + order.getNumber();
         String text = """
@@ -65,7 +63,6 @@ public class EmailService {
         sendEmail(user.getEmail(), subject, text);
     }
 
-    // ===== ОТПРАВИТЬ ОТВЕТ АДМИНА =====
     public void sendAdminReply(String userEmail, String userName, String adminReply) {
         String subject = "📬 Ответ от администратора Brewly";
         String text = """
@@ -83,7 +80,6 @@ public class EmailService {
         sendEmail(userEmail, subject, text);
     }
 
-    // ===== УНИВЕРСАЛЬНЫЙ МЕТОД =====
     private void sendEmail(String to, String subject, String text) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();

@@ -112,17 +112,4 @@
     </div>
 </section>
 
-<section class="newsletter-home">
-    <div class="container">
-        <div class="newsletter-box">
-            <h2>📬 Subscribe for Updates</h2>
-            <p>Get special offers and new arrivals straight to your inbox.</p>
-            <form class="newsletter-form">
-                <input type="email" placeholder="Your email address">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-    </div>
-</section>
-
 </@layout.layout>
