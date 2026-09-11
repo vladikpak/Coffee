@@ -69,10 +69,6 @@ public class OrderServiceImpl implements OrderService {
 
         OrderDto result = convertToDto(savedOrder);
 
-        if (false) {
-            messageQueueService.sendOrderCreated(result);
-        }
-
         return convertToDto(savedOrder);
     }
 
