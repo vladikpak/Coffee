@@ -7,7 +7,7 @@ import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @EnableCaching
-@EnableRabbit
+//@EnableRabbit
 public class CoffeeApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CoffeeApplication.class, args);
