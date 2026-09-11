@@ -1,4 +1,4 @@
-FROM eclipse-temurin:26-jdk-alpine AS build 
+FROM eclipse-temurin:26-jdk-alpine AS build
 WORKDIR /app
 COPY . .
 RUN chmod +x mvnw
