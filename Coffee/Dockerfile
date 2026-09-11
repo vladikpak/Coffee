@@ -1,6 +1,6 @@
 FROM eclipse-temurin:26-jdk-alpine AS build
 WORKDIR /app
-COPY Coffee .
+COPY . .
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
