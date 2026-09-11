@@ -2,6 +2,7 @@ databaseChangeLog:
   - changeSet:
       id: 004_create_purchases_table
       author: users
+      ifNotExists: true
       changes:
         - createTable:
             tableName: purchases

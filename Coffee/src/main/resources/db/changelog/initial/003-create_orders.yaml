@@ -2,6 +2,7 @@ databaseChangeLog:
   - changeSet:
       id: 003_create_orders_table
       author: users
+      ifNotExists: true
       changes:
         - createTable:
             tableName: orders
