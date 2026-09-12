@@ -2,10 +2,10 @@ databaseChangeLog:
   - changeSet:
       id: 006_create_contacts_table
       author: users
-      ifNotExists: true
       changes:
         - createTable:
             tableName: contacts
+            ifNotExists: true
             columns:
               - column:
                   name: id
