@@ -41,7 +41,6 @@ public class OrderController {
             UserDto currentUser = userService.findByEmail(auth.getName());
             OrderDto order = orderService.createOrder(currentUser.getId(), coffeeId, quantity);
 
-            // 👇 ОТПРАВЛЯЕМ ПОДТВЕРЖДЕНИЕ ЗАКАЗА
             emailService.sendOrderConfirmation(order, currentUser);
 
             return "redirect:/order/success";

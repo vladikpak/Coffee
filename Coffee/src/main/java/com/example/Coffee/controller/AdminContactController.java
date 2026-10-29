@@ -51,7 +51,6 @@ public class AdminContactController {
 
         Contact contact = contactService.replyToMessage(id, reply, admin);
 
-        // 👇 ОТПРАВЛЯЕМ ОТВЕТ НА EMAIL ПОЛЬЗОВАТЕЛЯ
         emailService.sendAdminReply(contact.getEmail(), contact.getName(), reply);
         return "redirect:/admin/contacts";
     }

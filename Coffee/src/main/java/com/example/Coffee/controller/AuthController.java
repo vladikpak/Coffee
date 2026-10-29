@@ -39,7 +39,6 @@ public class AuthController {
             }
             UserDto savedUser = userService.createUser(user);
 
-            // 👇 ОТПРАВЛЯЕМ ПРИВЕТСТВЕННОЕ ПИСЬМО
             emailService.sendWelcomeEmail(savedUser);
 
             return "redirect:/login?registered=true";

@@ -25,9 +25,6 @@ public class CoffeeServiceImpl implements CoffeeService {
     private final CoffeeRepository coffeeRepository;
     private final FileService fileService;
 
-    // ============================================================
-    // 8. СОЗДАТЬ КОФЕ (ОЧИЩАЕТ КЭШ)
-    // ============================================================
     @Override
     @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)
     public CoffeeDto createCoffee(Coffee coffee, MultipartFile image) {
@@ -47,9 +44,6 @@ public class CoffeeServiceImpl implements CoffeeService {
         return convertToDto(savedCoffee);
     }
 
-    // ============================================================
-    // 9. ОБНОВИТЬ КОФЕ (ОЧИЩАЕТ КЭШ)
-    // ============================================================
     @Override
     @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)
     public CoffeeDto updateCoffee(Coffee coffee, Long id, MultipartFile image) {
@@ -75,9 +69,6 @@ public class CoffeeServiceImpl implements CoffeeService {
         return convertToDto(savedCoffee);
     }
 
-    // ============================================================
-    // 2. ПОЛУЧИТЬ КОФЕ ПО ID (КЭШИРУЕТСЯ)
-    // ============================================================
     @Override
     @Cacheable(value = "coffee", key = "#id")
     public CoffeeDto getCoffeeById(Long id) {
@@ -89,9 +80,6 @@ public class CoffeeServiceImpl implements CoffeeService {
         return convertToDto(coffee);
     }
 
-    // ============================================================
-    // 1. ПОЛУЧИТЬ ВСЕ КОФЕ (КЭШИРУЕТСЯ)
-    // ============================================================
     @Override
     @Cacheable("coffees")
     public List<CoffeeDto> getAllCoffees() {
@@ -102,9 +90,6 @@ public class CoffeeServiceImpl implements CoffeeService {
                 .collect(Collectors.toList());
     }
 
-    // ============================================================
-    // 5. ПОЛУЧИТЬ СТРАНИЦУ (НЕ КЭШИРУЕТСЯ — ПАГИНАЦИЯ)
-    // ============================================================
     @Override
     public Page<CoffeeDto> getCoffeesPage(int page, int size) {
         Pageable pageable = PageRequest.of(page - 1, size);
@@ -112,9 +97,6 @@ public class CoffeeServiceImpl implements CoffeeService {
                 .map(this::convertToDto);
     }
 
-    // ============================================================
-    // 4. ПОИСК ПО НАЗВАНИЮ (КЭШИРУЕТСЯ)
-    // ============================================================
     @Override
     public Page<CoffeeDto> searchCoffees(String keyword, int page, int size) {
         if (keyword == null || keyword.trim().isEmpty()) {
@@ -129,9 +111,6 @@ public class CoffeeServiceImpl implements CoffeeService {
                 .map(this::convertToDto);
     }
 
-    // ============================================================
-    // 10. УДАЛИТЬ КОФЕ (ОЧИЩАЕТ КЭШ)
-    // ============================================================
     @Override
     @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)
     public void deleteCoffee(Long id) {
@@ -139,9 +118,6 @@ public class CoffeeServiceImpl implements CoffeeService {
         coffeeRepository.deleteById(id);
     }
 
-    // ============================================================
-    // 11. ОЧИСТИТЬ ВЕСЬ КЭШ (ДЛЯ АДМИНА)
-    // ============================================================
     @CacheEvict(value = {"coffees", "coffee"}, allEntries = true)
     @Override
     public void clearCache() {
