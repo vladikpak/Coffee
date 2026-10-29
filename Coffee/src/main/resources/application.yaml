@@ -1,12 +1,9 @@
 server:
-  port: 8080
+  port: 8089
 
 spring:
-  rabbitMQ:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+  rabbitmq:
+    enabled: false
 
   mail:
     host: smtp.gmail.com
@@ -81,3 +78,8 @@ logging:
       name: logs/app.log
     pattern:
       file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+management:
+  health:
+    rabbit:
+      enabled: false

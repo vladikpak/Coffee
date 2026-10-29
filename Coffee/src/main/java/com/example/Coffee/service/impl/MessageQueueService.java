@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MessageQueueService {
 
-    private final RabbitTemplate rabbitTemplate;
-
-    public void sendOrderCreated(OrderDto order) {
-        try {
-            rabbitTemplate.convertAndSend(RabbitMQConfig.ORDER_EXCHANGE, RabbitMQConfig.ORDER_ROUTING_KEY, order);
-            log.info("✅ Order message sent: {}", order.getNumber());
-        } catch (Exception e) {
-            log.error("❌ Failed to send order message: {}", e.getMessage());
-        }
-    }
+//    private final RabbitTemplate rabbitTemplate;
+//
+//    public void sendOrderCreated(OrderDto order) {
+//        try {
+//            rabbitTemplate.convertAndSend(RabbitMQConfig.ORDER_EXCHANGE, RabbitMQConfig.ORDER_ROUTING_KEY, order);
+//            log.info("✅ Order message sent: {}", order.getNumber());
+//        } catch (Exception e) {
+//            log.error("❌ Failed to send order message: {}", e.getMessage());
+//        }
+//    }
 }

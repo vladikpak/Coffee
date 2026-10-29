@@ -5,6 +5,7 @@ databaseChangeLog:
       changes:
         - createTable:
             tableName: contacts
+            ifNotExists: true
             columns:
               - column:
                   name: id

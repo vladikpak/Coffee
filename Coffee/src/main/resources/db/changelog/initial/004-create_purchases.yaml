@@ -5,6 +5,7 @@ databaseChangeLog:
       changes:
         - createTable:
             tableName: purchases
+            ifNotExists: true
             columns:
               - column:
                   name: id

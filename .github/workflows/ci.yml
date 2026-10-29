@@ -35,3 +35,8 @@ jobs:
       run: |
         cd Coffee
         mvn checkstyle:check
+
+    - name: Deploy to Render
+      if: github.ref == 'refs/heads/main'
+      run: |
+        curl -X POST "${{ secrets.RENDER_DEPLOY_HOOK }}"

@@ -5,6 +5,7 @@ databaseChangeLog:
       changes:
         - createTable:
             tableName: orders
+            ifNotExists: true
             columns:
               - column:
                   name: id

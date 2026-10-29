@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class OrderEventListener {
 
-    @RabbitListener(queues = "order.queue")
+//    @RabbitListener(queues = "order.queue")
     public void handleOrderCreated(OrderDto order) {
         log.info("📨 Received order event: {}", order.getNumber());
         log.info("📋 Order details: coffeeId={}, quantity={}, total={}",
